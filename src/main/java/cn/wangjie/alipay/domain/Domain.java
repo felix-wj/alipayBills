@@ -3,7 +3,6 @@ package cn.wangjie.alipay.domain;
 import cn.wangjie.alipay.property.AliMonitorProperties;
 import cn.wangjie.alipay.utils.FastDFSClient;
 import cn.wangjie.alipay.utils.SendEmailUtil;
-import cn.wangjie.alipay.constant.Urls;
 import cn.wangjie.alipay.entity.Bill;
 import cn.wangjie.alipay.entity.User;
 import cn.wangjie.alipay.service.BillService;
