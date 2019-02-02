@@ -1,0 +1,69 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/ali-bills?useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: root
+    password: 123456
+    # 使用druid数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      #连接池中最小的活跃连接数
+      min-idle: 1
+      #连接池建立时创建的初始化连接数
+      initial-size: 1
+      #连接池中最大的活跃连接数
+      max-active: 20
+      # 配置获取连接等待超时的时间
+      max-wait: 60000
+      validation-query: select 'x'
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      #是否在连接空闲一段时间后检测其可用性
+      test-while-idle: true
+      #是否在获得连接后检测其可用性
+      test-on-borrow: false
+      #是否在连接放回连接池后检测其可用性
+      test-on-return: false
+      #打开PSCache，并且指定每个连接上PSCache的大小
+      pool-prepared-statements: true
+      #配置监控统计拦截的filters，去掉后监控界面SQL无法统计，“wall”用于防火墙
+      filters: stat,wall
+
+#用来保持session的跳转url
+alipay-monitor:
+  urls:
+    - https://my.alipay.com/wealth/index.html
+    - https://my.alipay.com/portal/i.htm
+    - https://zcbprod.alipay.com/asset/asset.htm
+    - https://goldetfprod.alipay.com/gold/guide.htm
+    - https://my.alipay.com/portal/account/safeguard.htm
+    - https://b.alipay.com/
+    - https://mbillexprod.alipay.com/enterprise/tradeListQuery.htm
+    - https://market.alipay.com/activity/enter.htm
+    - https://mbillexprod.alipay.com/enterprise/dailyBillQuery.htm
+    - https://mbillexprod.alipay.com/enterprise/tradeListQuery.htm
+    - https://mbillexprod.alipay.com/enterprise/serviceFeeBillQuery.htm#/monthly
+    - https://lab.alipay.com/consume/record/items.htm
+    - https://custweb.alipay.com/account/index.htm
+
+# 分布式文件系统fastdfs配置
+fdfs:
+  # socket连接超时时长
+  so-timeout: 1500
+  # 连接tracker服务器超时时长
+  connect-timeout: 600
+  pool:
+    # 从池中借出的对象的最大数目
+    max-total: 153
+    # 获取连接时的最大等待毫秒数100
+    max-wait-millis: 102
+  # 缩略图生成参数，可选
+  thumb-image:
+    width: 150
+    height: 150
+  # 跟踪服务器tracker_server请求地址,支持多个，这里只有一个，如果有多个在下方加- x.x.x.x:port
+  tracker-list:
+  - 118.25.87.131:22122
+  # 存储服务器storage_server访问地址
+  web-server-url: http://www.edwsmycs.cn/fdfs/
+
